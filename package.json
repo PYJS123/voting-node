@@ -1,0 +1,19 @@
+{
+  "name": "vote-colour",
+  "version": "1.0.0",
+  "description": "A simple node app for voting for your favourite colour.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vote",
+    "colour",
+    "node"
+  ],
+  "author": "PYJS123",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
