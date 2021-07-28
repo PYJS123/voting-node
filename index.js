@@ -21,3 +21,13 @@ app.post('/postdata', (req, res) => {
   database.update({ elem: data.col }, { $inc: { votes: data.upticks } }, { multi: true }, function (err, numReplaced) {});
   res.end();
 });
+
+app.get('/data', (req, res) => {
+  database.find({}, (err, data) => {
+    if (err) {
+      res.end();
+      return;
+    }
+    res.json(data);
+  });
+});
