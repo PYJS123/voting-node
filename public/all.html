@@ -14,7 +14,10 @@
         },
         body: JSON.stringify({upticks: 1, col: "black"})
       };
-      await fetch('/postdata', options);
+      let tempFunc = async function() {
+        await fetch('/postdata', options);
+      };
+      tempFunc();
     </script>
     <h1>Opinions:</h1>
     <a href="thanks.html">Back to thank you page</a>

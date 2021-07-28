@@ -17,7 +17,7 @@ app.get('/cols', (req, res) => {
 });
 
 app.post('/postdata', (req, res) => {
-  const data = request.body;  // Includes data.upticks and data.col
-  db.update({ elem: data.col }, { $inc: { votes: data.upticks } }, { multi: true }, function (err, numReplaced) {});
+  const data = req.body;  // Includes data.upticks and data.col
+  database.update({ elem: data.col }, { $inc: { votes: data.upticks } }, { multi: true }, function (err, numReplaced) {});
   res.end();
 });
