@@ -18,7 +18,7 @@ app.get('/cols', (req, res) => {
 
 app.post('/postdata', (req, res) => {
   const data = req.body;  // Includes data.upticks and data.col
-  database.update({ elem: data.col }, { $inc: { votes: data.upticks } }, { multi: true }, function (err, numReplaced) {});
+  database.update({ elem: data.col }, { $inc: { votes: data.upticks } }, {}, function (err, numReplaced) {});
   res.end();
 });
 
@@ -28,6 +28,6 @@ app.get('/data', (req, res) => {
       res.end();
       return;
     }
-    res.json(data);
+    res.json(data.slice(data.length-11, data.length));
   });
 });

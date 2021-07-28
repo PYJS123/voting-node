@@ -10,8 +10,8 @@
       window.onload = async function() {
         const cols = (await (await fetch('/cols')).json()).cols;
         for (let elem of cols) {
-          col = elem[0];
-          won = elem[1];
+          let col = elem[0];
+          let won = elem[1];
           let newButton = document.createElement('button');
           newButton.textContent = col;
           newButton.style.backgroundColor = col;
@@ -21,15 +21,24 @@
           if (won) {
             newButton.style.color = "#FFFFFF";
           }
-          newButton.onclick = function() {
-            addVote(col);
+          newButton.onclick = async function() {
+            await addVote(col);
             window.location.href += 'thanks.html';
-          }
+          };
           document.body.append(newButton);
         }
       }
 
-      function addVote(col) {}
+      async function addVote(col) {
+        let options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ col: col, upticks: 1 })
+        };
+        await fetch('/postdata', options);
+      }
     </script>
     <h1>Vote! Which colour is the best?</h1>
   </body>
