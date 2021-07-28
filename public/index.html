@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Vote for your favourite colour!</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.onload = async function() {
+        const cols = (await (await fetch('/cols')).json()).cols;
+        for (let elem of cols) {
+          col = elem[0];
+          won = elem[1];
+          let newButton = document.createElement('button');
+          newButton.textContent = col;
+          newButton.style.backgroundColor = col;
+          if (col == 'white') {
+            newButton.style.border = "dashed";
+          }
+          if (won) {
+            newButton.style.color = "#FFFFFF";
+          }
+          newButton.onclick = function() {
+            addVote(col);
+            window.location.href += 'thanks.html';
+          }
+          document.body.append(newButton);
+        }
+      }
+
+      function addVote(col) {}
+    </script>
+    <h1>Vote! Which colour is the best?</h1>
+  </body>
+</html>

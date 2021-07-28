@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Data</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({upticks: 1, col: "black"})
+      };
+      await fetch('/postdata', options);
+    </script>
+    <h1>Opinions:</h1>
+    <a href="thanks.html">Back to thank you page</a>
+  </body>
+</html>
