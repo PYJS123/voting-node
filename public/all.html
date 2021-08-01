@@ -13,7 +13,7 @@
         let json = await stream.json();
         let cols = json.map(elem => elem.elem);
         let data = json.map(elem => elem.votes);
-        let hex = json.map(elem => elem.votes);
+        let hex = json.map(elem => elem.col);
 
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -46,6 +46,8 @@
               // borderColor: [
               //   'rgba(255, 99, 132, 1)'
               // ],
+              backgroundColor: hex.map(hex => hex+'aa'),
+              borderColor: hex.map(hex => (hex=='#fefefe') ? '#999999' : hex),
               borderWidth: 1
             }]
           }
