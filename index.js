@@ -1,6 +1,6 @@
 const express = require('express');
 const Datastore = require('nedb');
-const colours = [["black", true], ["white", false], ["red", true], ["green", true], ["yellow", false], ["blue", true], ["pink", false], ["gray", false], ["brown", true], ["orange", false], ["purple", true]];
+const colours = [["black", true, '#000000'], ["white", false, '#ffffff'], ["red", true, '#ff0000'], ["green", true, '#008000'], ["yellow", false, '#ffff00'], ["blue", true, '#0000ff'], ["pink", false, '#ffc0cb'], ["gray", false, '#808080'], ["brown", true, '#a52a2a'], ["orange", false, '#ffa500'], ["purple", true, '#800080']];
 require('dotenv').config();
 
 const app = express();
