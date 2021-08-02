@@ -18,6 +18,15 @@
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
           type: 'bar',
+          options: {
+            scales: {
+              y: {
+                ticks: {
+                  stepSize: 1
+                }
+              }
+            }
+          },
           data: {
             labels: cols,
             datasets: [{
